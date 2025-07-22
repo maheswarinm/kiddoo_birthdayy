@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happiestttttttt Birthdayyyy Betaaaaa 🎉</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Kaushan+Script&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Kaushan Script', cursive;
+      color: #333;
+      background: #faf0e6; /* Soft Linen background */
+      height: 100%;
+    }
+
+    #background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+    }
+
+    .container {
+      position: relative;
+      z-index: 10;
+      padding: 40px;
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.6);
+      border-radius: 20px;
+      margin-top: 80px;
+      animation: fadeIn 2s ease-out;
+    }
+
+    h1.glow {
+      font-family: 'Press Start 2P', cursive;
+      color: #ff4dcf;
+      text-shadow: 0 0 10px #ff4dcf, 0 0 20px #ff4dcf, 0 0 40px #ff4dcf;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      border: 2px solid #333;
+      color: #333;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 16px;
+      background: transparent;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #333;
+      color: #fff;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .petal {
+      position: fixed;
+      top: -10px;
+      width: 20px;
+      height: 20px;
+      background-image: url('https://i.imgur.com/2bdf9Hf.png');
+      background-size: cover;
+      opacity: 0.8;
+      animation-name: fall;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    #surprise-message {
+      display: none;
+      margin-top: 30px;
+      font-size: 20px;
+      color: #d63384;
+      animation: fadeIn 2s ease-out;
+    }
+
+    input[type="range"] {
+      width: 150px;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+  <div id="background"></div>
+
+  <div class="container">
+    <h1 class="glow">🎂 Happiestttttt Birthdayyyyy Betaaaaaaa 🎂</h1>
+    <p>From <strong>Mahii 💙</strong></p>
+    <p>One whole year of laughter, support, and chaos. You’ve been the most amazing kind of constant.</p>
+    <p><strong>"Mahii tho antha easy kadhu"</strong> – and yes, if you say no to birthday gift, she has other cuter, funnier, and more dramatic tricks to make you smile... Eeeeeeeeeeeeeeeeeeeeeeee hahaha~</p>
+    <p>I know you always say you don't need gifts, but this isn't about the need. It's about you being one of the few people who genuinely made this past year better. So here's something small, just to say THANK YOU for being you.</p>
+    <p><strong>"HOPE YOU SMILE A LITTLE TODAY. YOU DESERVE THAT AND MORE TECH-WARRIOR"</strong></p>
+
+    <button class="btn" onclick="revealMessage()">🎁 Click to Reveal a Surprise</button>
+    <p id="surprise-message">🌟 You are truly special, hkkkk. Never stop being you! DON'T MISS MEEEE MOREEE HEHEHEE💙 — Mahii</p>
+
+    <div style="margin-top: 20px;">
+      <button class="btn" onclick="toggleMusic()">🎵 Play / Pause Hakuna Matata</button>
+      <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.5">
+    </div>
+  </div>
+
+  <audio id="bg-audio" loop>
+    <source src="https://www.televisiontunes.com/uploads/audio/The%20Lion%20King%20-%20Hakuna%20Matata.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+  <script>
+    VANTA.WAVES({
+      el: "#background",
+      mouseControls: true,
+      touchControls: true,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color: 0xff4dcf,
+      shininess: 50.00,
+      waveHeight: 30.00,
+      waveSpeed: 1.25,
+      zoom: 1.00
+    });
+
+    const audio = document.getElementById("bg-audio");
+    const volumeSlider = document.getElementById("volumeSlider");
+
+    function toggleMusic() {
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+
+    volumeSlider.addEventListener("input", function () {
+      audio.volume = volumeSlider.value;
+    });
+
+    function revealMessage() {
+      document.getElementById('surprise-message').style.display = 'block';
+      audio.pause(); // Pause music on surprise
+    }
+
+    const numPetals = 30;
+    for (let i = 0; i < numPetals; i++) {
+      const petal = document.createElement("div");
+      petal.classList.add("petal");
+      petal.style.left = Math.random() * 100 + "vw";
+      petal.style.animationDelay = Math.random() * 10 + "s";
+      petal.style.animationDuration = 5 + Math.random() * 5 + "s";
+      document.body.appendChild(petal);
+    }
+  </script>
+</body>
+</html>
