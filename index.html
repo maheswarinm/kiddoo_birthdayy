@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,7 @@
       overflow: hidden;
       font-family: 'Kaushan Script', cursive;
       color: #333;
-      background: #faf0e6; /* Soft Linen background */
+      background: #faf0e6;
       height: 100%;
     }
 
@@ -128,7 +129,7 @@
   </div>
 
   <audio id="bg-audio" loop>
-    <source src="https://www.televisiontunes.com/uploads/audio/The%20Lion%20King%20-%20Hakuna%20Matata.mp3" type="audio/mpeg">
+    <source src="hakuna.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
@@ -167,7 +168,7 @@
 
     function revealMessage() {
       document.getElementById('surprise-message').style.display = 'block';
-      audio.pause(); // Pause music on surprise
+      audio.pause();
     }
 
     const numPetals = 30;
