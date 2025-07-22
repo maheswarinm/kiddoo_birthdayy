@@ -15,7 +15,6 @@
       background: #faf0e6;
       height: 100%;
     }
-
     #background {
       position: fixed;
       top: 0;
@@ -24,7 +23,6 @@
       width: 100%;
       height: 100%;
     }
-
     .container {
       position: relative;
       z-index: 10;
@@ -37,13 +35,11 @@
       margin-top: 80px;
       animation: fadeIn 2s ease-out;
     }
-
     h1.glow {
       font-family: 'Press Start 2P', cursive;
       color: #ff4dcf;
       text-shadow: 0 0 10px #ff4dcf, 0 0 20px #ff4dcf, 0 0 40px #ff4dcf;
     }
-
     .btn {
       display: inline-block;
       margin-top: 20px;
@@ -57,23 +53,14 @@
       transition: all 0.3s ease-in-out;
       cursor: pointer;
     }
-
     .btn:hover {
       background: #333;
       color: #fff;
     }
-
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-
     .petal {
       position: fixed;
       top: -10px;
@@ -88,12 +75,10 @@
       pointer-events: none;
       z-index: 10;
     }
-
     @keyframes fall {
       0% { transform: translateY(0) rotate(0deg); }
       100% { transform: translateY(100vh) rotate(360deg); }
     }
-
     #surprise-message {
       display: none;
       margin-top: 30px;
@@ -101,7 +86,6 @@
       color: #d63384;
       animation: fadeIn 2s ease-out;
     }
-
     input[type="range"] {
       width: 150px;
       vertical-align: middle;
@@ -110,7 +94,6 @@
 </head>
 <body>
   <div id="background"></div>
-
   <div class="container">
     <h1 class="glow">🎂 Happiestttttt Birthdayyyyy Betaaaaaaa 🎂</h1>
     <p>From <strong>Mahii 💙</strong></p>
@@ -154,6 +137,10 @@
     const audio = document.getElementById("bg-audio");
     const volumeSlider = document.getElementById("volumeSlider");
 
+    document.body.addEventListener("click", () => {
+      audio.play().catch(e => console.log("Autoplay failed:", e));
+    }, { once: true });
+
     function toggleMusic() {
       if (audio.paused) {
         audio.play();
@@ -168,7 +155,6 @@
 
     function revealMessage() {
       document.getElementById('surprise-message').style.display = 'block';
-      audio.pause();
     }
 
     const numPetals = 30;
